@@ -1,0 +1,8 @@
+{
+  "pages": "1",
+  "area": [50, 92, 480, 220],
+  "columns": [50, 230, 330, 480],
+  "header_rows": 1,
+  "fill_merged": "none",
+  "normalize_numbers": true
+}

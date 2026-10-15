@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pdf-table-extract"
+version = "0.1.0"
+description = "Local PDF table extraction with visual review, templates and MCP"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = ["pdfplumber>=0.11,<0.12", "pypdfium2>=4.30,<6", "openpyxl>=3.1,<4", "jsonschema>=4,<5", "mcp>=1.20,<2", "Pillow>=10"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-cov>=5", "ruff>=0.11", "reportlab>=4", "pypdf>=5"]
+ocr = ["rapidocr-onnxruntime>=1.4,<2"]
+camelot = ["camelot-py>=1,<2"]
+
+[project.scripts]
+pte = "pdf_table_extract.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pdf_table_extract"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

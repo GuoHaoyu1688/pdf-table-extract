@@ -1,0 +1,132 @@
+[
+  {
+    "name": "inspect_pdf",
+    "title": null,
+    "description": "Read local PDF page dimensions, text-layer presence and detected table counts.",
+    "inputSchema": {
+      "properties": {
+        "path": {
+          "title": "Path",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path"
+      ],
+      "title": "inspect_pdfArguments",
+      "type": "object"
+    },
+    "outputSchema": null,
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  },
+  {
+    "name": "extract_tables",
+    "title": null,
+    "description": "Extract local tables. Side effect: if out is given, writes/replaces exports there.\n\n        pages uses 1-3,7 syntax. Area uses PDF points with top-left origin.\n        OCR is optional and local; no network downloads are initiated.\n        ",
+    "inputSchema": {
+      "properties": {
+        "path": {
+          "title": "Path",
+          "type": "string"
+        },
+        "pages": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pages"
+        },
+        "format": {
+          "default": "json",
+          "title": "Format",
+          "type": "string"
+        },
+        "merge_pages": {
+          "default": false,
+          "title": "Merge Pages",
+          "type": "boolean"
+        },
+        "out": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Out"
+        },
+        "engine": {
+          "default": "auto",
+          "title": "Engine",
+          "type": "string"
+        },
+        "ocr": {
+          "default": false,
+          "title": "Ocr",
+          "type": "boolean"
+        },
+        "header_rows": {
+          "default": 1,
+          "title": "Header Rows",
+          "type": "integer"
+        },
+        "fill_merged": {
+          "default": "none",
+          "title": "Fill Merged",
+          "type": "string"
+        },
+        "area": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "number"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Area"
+        },
+        "columns": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "number"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Columns"
+        }
+      },
+      "required": [
+        "path"
+      ],
+      "title": "extract_tablesArguments",
+      "type": "object"
+    },
+    "outputSchema": null,
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  }
+]
